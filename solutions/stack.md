@@ -1,6 +1,6 @@
-#include <iostream>
-using namespace std;
+## Basic Stack
 
+```cpp
 class Stack
 {
     private:
@@ -63,23 +63,26 @@ class Stack
             }
         }
 };
+```
 
-int main()
+### Reverse String
+
+```cpp
+string reverseString(const string& input)
 {
-    cout << "Hello stack!!!" << endl;
-    Stack s;
+  stack<char> s;
+  string reversed = "";
+  for (char ch : input)
+  {
+    s.push(ch);
+  }
 
-    s.push(10);
-    s.push(20);
-    s.push(30);
-    s.push(40);
-    s.push(50);
+  while (!s.empty())
+  {
+    reversed += s.top(); // ambil paling atas
+    s.pop(); // buang paling atas dari stack
+  }
 
-    s.display();
-
-    s.peak();
-    s.change(2, 80);
-    s.display();
-
-    return 0;
+  return reversed;
 }
+```
