@@ -86,3 +86,37 @@ string reverseString(const string& input)
   return reversed;
 }
 ```
+
+
+### Match Pairing
+
+```cpp
+bool isMatchingPair(char open, char close)
+{
+  return (open == '(' && close == ')') || (open == '[' && close == ']') ||
+         (open == '{' && close == '}');
+}
+
+bool isBalanced(const string& expr)
+{
+  stack<char> s;
+
+  for (char ch : expr)
+  {
+    if (ch == '(' || ch == '{' || ch == '[')
+    {
+      s.push(ch); // Kurung buka → push
+    }
+    else if (ch == ')' || ch == '}' || ch == ']')
+    {
+      if (s.empty() || !isMatchingPair(s.top(), ch))
+      {
+        return false;
+      }
+      s.pop();
+    }
+  }
+
+  return s.empty();
+}
+```
