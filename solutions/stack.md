@@ -120,3 +120,57 @@ bool isBalanced(const string& expr)
   return s.empty();
 }
 ```
+
+
+### Cow Signal
+
+```cpp
+void solve()
+{
+  // 1. Membaca input M, N, dan K
+  int M, N, K;
+  if (!(cin >> M >> N >> K))
+  {
+    return;
+  }
+
+  // 2. Membaca sinyal asli
+  // Kita simpan sinyal asli sebagai vektor dari string
+  vector<string> sinyal_asli(M);
+  for (int i = 0; i < M; ++i)
+  {
+    cin >> sinyal_asli[i];
+  }
+
+  // 3. Memproses dan Mencetak sinyal yang diperbesar
+
+  // Iterasi melalui setiap baris (row) dari sinyal asli (M baris)
+  for (int i = 0; i < M; ++i)
+  {
+
+    // Baris asli yang sedang diproses
+    const string& baris_asli = sinyal_asli[i];
+
+    // String untuk menyimpan baris yang telah diperbesar secara horizontal
+    string baris_diperbesar_horizontal = "";
+
+    // a. Perbesaran Horizontal (N -> K*N)
+    // Iterasi melalui setiap karakter dalam baris asli
+    for (char karakter : baris_asli)
+    {
+      // Gandakan setiap karakter K kali
+      for (int k = 0; k < K; ++k)
+      {
+        baris_diperbesar_horizontal += karakter;
+      }
+    }
+
+    // b. Perbesaran Vertikal (M -> K*M)
+    // Cetak baris yang telah diperbesar secara horizontal sebanyak K kali
+    for (int k = 0; k < K; ++k)
+    {
+      cout << baris_diperbesar_horizontal << endl;
+    }
+  }
+}
+```

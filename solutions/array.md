@@ -13,6 +13,35 @@ void arr()
 }
 ```
 
+### Iterate Array
+
+```cpp
+int main()
+{
+  vector<int> v{1, 2, 3, 4, 5};
+  for (int i = 0; i < int(size(v)); i++)
+  {
+    cout << v[i] << " ";
+  }
+
+  cout << endl;
+
+  vector<int> w{1, 7, 4, 5, 2};
+
+  for (auto it = begin(w); it != end(w); it = next(it))
+  {
+    cout << *it << " ";
+  }
+
+  cout << endl;
+  vector<int> x{3, 8, 9, 0, 1};
+  for (int element : x)
+  {
+    cout << element << " ";
+  }
+}
+```
+
 
 ## Two Pointers
 
